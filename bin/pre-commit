@@ -1,0 +1,27 @@
+#!/bin/bash
+# Installation:
+#   From top dir of repo:
+#     mkdir .git/hooks && ln -s bin/pre-commit .git/hooks/.
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+if [ -d "$REPO_ROOT/.venv" ]; then
+  source "$REPO_ROOT/.venv/bin/activate"
+else
+  echo 'Please initialize virtualenv at root'
+  exit 1
+fi
+# To prevent errors from `click` (flask docs validate) related to python3
+# text handling
+export LANG=en_US.UTF-8
+
+cd "$REPO_ROOT"
+
+# More pre-commit things
+pre-commit run --all-files  || exit 1
+
+# sam validate || exit 1
+
+# tox || exit 1
+
+# Remove all pycache from testing
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
