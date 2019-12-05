@@ -7,6 +7,10 @@ and installed into your virtualenv, usually `<app-root-direcotry>/.venv`
 
 ## pre-commit
 
+The `.pre-commit-config.yaml` defines which third-party code efficacy tools
+are run when the commant is called. Below is how the code is called in normal
+development process as well as manually.
+
 ### run with every commit
 
 ```
