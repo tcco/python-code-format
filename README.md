@@ -37,3 +37,4 @@ pre-commit run --all-files
 - [pre-commit](https://pre-commit.com/)
 - [black](https://black.readthedocs.io/en/stable/)
 - [bandit](https://bandit.readthedocs.io/en/latest/)
+- [flake-8](http://flake8.pycqa.org/en/latest/)
